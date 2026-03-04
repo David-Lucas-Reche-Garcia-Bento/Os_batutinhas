@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #201F5E;
+    color:white;
+}
+.wallpaper-inicial {
+    position: relative;   /* referência para o texto */
+    width: 100%;            
+}
+
+.titulo-grecia {
+    position: absolute;   /* coloca em cima da imagem */
+    top: 50%;            /* ajusta altura */
+    right: 10%;           /* joga para a parte azul */
+    transform: translateY(-50%);
+    color: white;
+    max-width: 400px;
+    font-size: 60px;
+}
+
+.texto-aluno{
+    position: absolute;   /* coloca em cima da imagem */
+    top: 95%;            /* ajusta altura */
+    right: 18%;           /* joga para a parte azul */
+    transform: translateY(-50%);
+    color: white;
+    max-width: 400px;
+}
+
+main h1{
+    text-align: center;
+    margin-top: 80px;
+}
+
+main ul li{
+    display: flex;
+    flex-direction: column;
+}
+
+main ul{
+    display: flex;
+    gap: 40px;
+    padding-left: 100px;
+    padding-top: 80px;
+}
+
+
+
