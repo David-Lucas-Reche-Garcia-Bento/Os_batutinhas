@@ -1,12 +1,10 @@
 :root {
-    --navy: rgb(11, 9, 35);
-    --blue-mid: rgb(22, 53, 120);
-    --blue-card: rgb(20, 42, 149);
-    --accent-blue: #0099ff;
-    --red: #ff0000;
-    --green: #00ff00;
-    --blue: #0099ff;
-    --white: whitesmoke;
+    --preto: rgb(11, 9, 35);
+    --azul-claro: #0099ff;
+    --vermelho: #ff0000;
+    --verde: #00ff00;
+    --azul: #0099ff;
+    --branco: brancosmoke;
 }
 
 * {
@@ -21,8 +19,8 @@ html {
 
 body {
     margin: 0;
-    background-color: var(--navy);
-    color: var(--white);
+    background-color: var(--preto);
+    color: var(--branco);
     display: flex;
     flex-direction: column;
     font-family: 'Space Mono', monospace;
@@ -68,13 +66,13 @@ header h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.3rem;
     letter-spacing: 3px;
-    color: var(--white);
+    color: var(--branco);
     opacity: 0.85;
-    white-space: nowrap;
+    branco-space: nowrap;
 }
 
 nav a {
-    color: var(--white);
+    color: var(--branco);
     text-decoration: none;
     font-size: 0.75rem;
     letter-spacing: 2px;
@@ -88,7 +86,7 @@ nav a {
 
 nav a:hover {
     background: rgba(0, 153, 255, 0.15);
-    border-color: var(--accent-blue);
+    border-color: var(--azul-claro);
     opacity: 1;
     box-shadow: 0 0 12px rgba(0, 153, 255, 0.3);
 }
@@ -138,7 +136,7 @@ main {
     text-transform: uppercase;
     letter-spacing: 4px;
     font-family: "Rubik Puddles", system-ui;
-    color: whitesmoke;
+    color: brancosmoke;
     font-weight: 800;
     font-style: normal;
     line-height: 1;
@@ -188,24 +186,23 @@ main {
     transform: translateX(-20px);
 }
 
-#red {
+#vermelho {
     color: #ff0000;
     text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 45px #ff0000;
 }
 
-#green {
+#verde {
     color: #00ff00;
     text-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00, 0 0 45px #00ff00;
 }
 
-#blue {
+#azul {
     color: #0099ff;
     text-shadow: 0 0 15px #0099ff, 0 0 30px #0099ff, 0 0 45px #0099ff;
 }
 
 /* ===== EFEITO DE PISCAR========== */
 @keyframes flicker {
-
     0%,
     9%,
     19%,
@@ -232,23 +229,23 @@ main {
     padding: 0 4rem;
 }
 
-.section-header {
+.secao-header {
     margin-bottom: 2.5rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid rgba(0, 153, 255, 0.15);
 }
 
-.section-tag {
+.secao-tag {
     font-size: 0.65rem;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--accent-blue);
+    color: var(--azul-claro);
     margin-bottom: 0.6rem;
     display: block;
     opacity: 0.7;
 }
 
-.section-header h2 {
+.secao-header h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3rem;
     letter-spacing: 3px;
@@ -256,12 +253,12 @@ main {
     line-height: 1;
 }
 
-.section-header h2 strong {
-    color: var(--accent-blue);
+.secao-header h2 strong {
+    color: var(--azul-claro);
     text-shadow: 0 0 20px rgba(0, 153, 255, 0.5);
 }
 
-.section-subtitle {
+.secao-subtitle {
     font-size: 0.75rem;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -301,7 +298,7 @@ main {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+    background: linear-gradient(90deg, transparent, var(--azul-claro), transparent);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -353,7 +350,7 @@ main {
     gap: 1.5rem;
 }
 
-#curiosidades .section-header {
+#curiosidades .secao-header {
     margin-bottom: 1rem;
 }
 
@@ -380,7 +377,7 @@ main {
 
 #curiosidades li::before {
     content: '▸';
-    color: var(--accent-blue);
+    color: var(--azul-claro);
     font-size: 1rem;
     flex-shrink: 0;
     text-shadow: 0 0 10px rgba(0, 153, 255, 0.5);
@@ -395,7 +392,7 @@ main {
 
 /* ===== FOOTER ===== */
 footer {
-    background: linear-gradient(135deg, #0077cc 0%, var(--accent-blue) 50%, #0077cc 100%);
+    background: linear-gradient(135deg, #0077cc 0%, var(--azul-claro) 50%, #0077cc 100%);
     display: flex;
     justify-content: center;
     align-items: center;
