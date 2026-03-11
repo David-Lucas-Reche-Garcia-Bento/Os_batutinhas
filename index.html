@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore o Mundo — Destinos Incríveis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1a2744;
+      --blue: #2c5282;
+      --sky: #4a90d9;
+      --white: #ffffff;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(160deg, #c9d8ed 0%, #dce8f5 40%, #e8f0f9 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 48px; position: relative; z-index: 10;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon {
+      width: 46px; height: 46px; background: var(--navy);
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 20px;
+    }
+    .logo-text {
+      font-family: 'Bebas Neue', sans-serif; font-size: 18px;
+      line-height: 1.1; color: var(--navy); letter-spacing: 1px;
+    }
+    nav a {
+      font-size: 13px; font-weight: 600; color: var(--navy);
+      text-decoration: none; margin-left: 28px;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--sky); }
+
+    .hero { text-align: center; padding: 10px 24px 0; }
+    .hero-sub {
+      font-size: 13px; font-weight: 700; letter-spacing: 4px;
+      color: var(--blue); text-transform: uppercase; margin-bottom: 6px;
+      opacity: 0; animation: fadeUp 0.7s 0.2s forwards;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(56px, 9vw, 110px);
+      color: var(--navy); line-height: 0.95; letter-spacing: 3px;
+      text-transform: uppercase; opacity: 0; animation: fadeUp 0.7s 0.4s forwards;
+    }
+    .hero h1 span { color: var(--sky); }
+
+    .stripe {
+      width: 100%; background: rgba(255,255,255,0.55);
+      height: 6px; margin: 18px 0;
+      opacity: 0; animation: fadeIn 0.5s 0.6s forwards;
+    }
+
+    .cards-wrapper {
+      display: flex; justify-content: center; align-items: flex-end; padding: 0 24px;
+    }
+    .card-outer { flex-shrink: 0; opacity: 0; }
+    .card-outer:nth-child(1) { transform: translateY(40px) rotate(-9deg); animation: cardIn 0.6s 0.5s forwards;  margin-right: -30px; z-index: 1; position: relative; }
+    .card-outer:nth-child(2) { transform: translateY(20px) rotate(-4deg); animation: cardIn 0.6s 0.65s forwards; margin-right: -30px; z-index: 2; position: relative; }
+    .card-outer:nth-child(3) { transform: translateY(0px)  rotate(0deg);  animation: cardIn 0.6s 0.8s forwards;  z-index: 5; position: relative; }
+    .card-outer:nth-child(4) { transform: translateY(20px) rotate(4deg);  animation: cardIn 0.6s 0.95s forwards; margin-left: -30px;  z-index: 2; position: relative; }
+    .card-outer:nth-child(5) { transform: translateY(40px) rotate(9deg);  animation: cardIn 0.6s 1.1s forwards;  margin-left: -30px;  z-index: 1; position: relative; }
+
+    .card {
+      width: 200px; height: 310px; border-radius: 18px; overflow: hidden;
+      position: relative; box-shadow: 0 20px 60px rgba(26,39,68,0.35);
+      cursor: pointer; text-decoration: none; display: block;
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease;
+      background: #2a3a5a;
+    }
+    .card-outer:nth-child(3) .card { width: 220px; height: 340px; }
+    .card:hover {
+      transform: translateY(-18px) scale(1.04) !important;
+      box-shadow: 0 36px 80px rgba(26,39,68,0.45); z-index: 10;
+    }
+
+    .card img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .card:hover img { transform: scale(1.08); }
+
+    /* shimmer loading state */
+    .card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(110deg, #2a3a5a 25%, #3a4f78 50%, #2a3a5a 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      z-index: 0;
+    }
+    .card img.loaded ~ .card::before,
+    .card.img-ready::before { display: none; }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(8,18,38,0.04) 0%,
+        rgba(8,18,38,0.1) 45%,
+        rgba(8,18,38,0.72) 100%);
+      z-index: 2;
+    }
+    .card-label {
+      position: absolute; bottom: 22px; left: -4px; z-index: 3;
+      background: var(--white); padding: 8px 22px 8px 16px;
+      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
+      min-width: 148px;
+    }
+    .card-label .country {
+      font-family: 'Bebas Neue', sans-serif; font-size: 19px;
+      color: var(--navy); letter-spacing: 1.5px; display: block; line-height: 1;
+    }
+    .card-label .tagline {
+      font-size: 10px; font-weight: 600; color: var(--sky);
+      letter-spacing: 0.5px; display: block; margin-top: 2px;
+    }
+    .flag-badge {
+      position: absolute; top: 14px; right: 14px; z-index: 3;
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.85);
+      font-size: 24px; display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.18); backdrop-filter: blur(6px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .footer-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 48px; margin-top: 30px;
+      opacity: 0; animation: fadeUp 0.6s 1.4s forwards;
+    }
+    .contact-info {
+      font-size: 13px; font-weight: 600; color: var(--navy);
+      display: flex; align-items: center;
+    }
+    .contact-info::before {
+      content: ''; display: inline-block; width: 40px; height: 2px;
+      background: var(--navy); margin-right: 14px;
+    }
+    .cta-btn {
+      background: var(--navy); color: var(--white);
+      font-family: 'Bebas Neue', sans-serif; font-size: 22px;
+      letter-spacing: 2px; padding: 14px 40px; border-radius: 8px;
+      text-decoration: none; transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 8px 24px rgba(26,39,68,0.3);
+    }
+    .cta-btn:hover { background: var(--sky); transform: translateY(-2px); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes cardIn { to { opacity: 1; } }
+
+    @media (max-width: 900px) {
+      .cards-wrapper { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 16px; }
+      .card-outer { transform: none !important; margin: 0 4px !important; }
+      header { padding: 16px 20px; }
+      nav { display: none; }
+      .footer-bar { padding: 16px 20px; flex-direction: column; gap: 14px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="logo">
+      <div class="logo-icon">✈️</div>
+    </a>
+  </header>
+
+  <div class="hero">
+    <p class="hero-sub">Trabalho de devops</p>
+    <h1>LUGARES QUE <br><span>QUEREMOS CONHECER</span></h1>
+  </div>
+  <div class="stripe"></div>
+
+  <div class="cards-wrapper">
+
+    <div class="card-outer">
+      <a href="./GustavoKenzo/kenzo.html" class="card" id="card-japao">
+        <div class="card-overlay"></div>
+        <div class="card-label">
+          <span class="country">Japão</span>
+          <span class="tagline">Terra do Sol Nascente</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="card-outer">
+      <a href="./Lorenzo/lorenzo.html" class="card" id="card-grecia">
+        <div class="card-overlay"></div>
+        <div class="card-label">
+          <span class="country">Grécia</span>
+          <span class="tagline">Berço da Civilização</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="card-outer">
+      <a href="./David/David.html" class="card" id="card-brasil">
+        <div class="card-overlay"></div>
+        <div class="card-label">
+          <span class="country">Brasil</span>
+          <span class="tagline">Maravilhas Naturais</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="card-outer">
+      <a href="./mariana/mariana.html" class="card" id="card-usa">
+        <div class="card-overlay"></div>
+        <div class="card-label">
+          <span class="country">Estados Unidos</span>
+          <span class="tagline">Vale do Silício</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="card-outer">
+      <a href="./vinicius/vinicius.html" class="card" id="card-russia">
+        <div class="card-overlay"></div>
+        <div class="card-label">
+          <span class="country">Rússia</span>
+          <span class="tagline">O Gigante do Leste</span>
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    const photos = {
+      "card-japao":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQumSyqoJ7bZ8-3a243JZA9JU1JXetnmiYt3Q&s",
+      "card-grecia": "https://midias.eurodicas.com.br/wp-content/uploads/2024/06/tudo-sobre-a-grecia-1.jpg.webp",
+      "card-brasil": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs1fFpIkF2RTQ6OJsCeWq4xg4oPlRwwxXixmNj-B8a0niXart1_fLzsO1NDzJ_QtXMCEg&usqp=CAU",
+      "card-usa":    "https://betafly.com.br/wp-content/uploads/2024/11/medium_Texto_do_seu_paragrafo_4c2688a107.jpg",
+      "card-russia": "https://www.estudarfora.org.br/wp-content/uploads/2018/06/estudar-na-R%C3%BAssia-1.jpg",
+    };
+
+    const fallbacks = {
+      "card-japao":  "linear-gradient(160deg,#b8c8e8,#d8b8cc,#eeccc0,#c8d8b0)",
+      "card-grecia": "linear-gradient(160deg,#1060a0,#3090e0,#a0d8f8,#f5f2ee)",
+      "card-brasil": "linear-gradient(160deg,#1888e0,#2a7838,#f0e0a0,#38a0d8)",
+      "card-usa":    "linear-gradient(160deg,#d86820,#f09840,#90b8d8,#1860a0)",
+      "card-russia": "linear-gradient(160deg,#182c44,#4878a8,#e0eaf8,#c0392b)",
+    };
+
+    Object.entries(photos).forEach(([id, src]) => {
+      const card = document.getElementById(id);
+      if (!card) return;
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = id;
+      img.style.zIndex = '1';
+
+      img.onload = () => {
+        card.insertBefore(img, card.firstChild);
+        card.style.background = 'transparent';
+      };
+
+      img.onerror = () => {
+        // Use Picsum with a fixed seed as second fallback
+        const seed = id.replace('card-','');
+        const picsum = `https://picsum.photos/seed/${seed}/400/600`;
+        const img2 = document.createElement('img');
+        img2.src = picsum;
+        img2.alt = id;
+        img2.style.zIndex = '1';
+        img2.onload = () => {
+          card.insertBefore(img2, card.firstChild);
+          card.style.background = 'transparent';
+        };
+        img2.onerror = () => {
+          card.style.background = fallbacks[id];
+        };
+      };
+    });
+  </script>
+</body>
+</html>
