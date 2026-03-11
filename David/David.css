@@ -4,7 +4,7 @@
     --vermelho: #ff0000;
     --verde: #00ff00;
     --azul: #0099ff;
-    --branco: brancosmoke;
+    --white: whitesmoke;
 }
 
 * {
@@ -20,7 +20,7 @@ html {
 body {
     margin: 0;
     background-color: var(--preto);
-    color: var(--branco);
+    color: var(--white);
     display: flex;
     flex-direction: column;
     font-family: 'Space Mono', monospace;
@@ -66,13 +66,13 @@ header h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.3rem;
     letter-spacing: 3px;
-    color: var(--branco);
+    color: var(--white);
     opacity: 0.85;
-    branco-space: nowrap;
+    white-space: nowrap;
 }
 
 nav a {
-    color: var(--branco);
+    color: var(--white);
     text-decoration: none;
     font-size: 0.75rem;
     letter-spacing: 2px;
@@ -136,7 +136,7 @@ main {
     text-transform: uppercase;
     letter-spacing: 4px;
     font-family: "Rubik Puddles", system-ui;
-    color: brancosmoke;
+    color: whitesmoke;
     font-weight: 800;
     font-style: normal;
     line-height: 1;
