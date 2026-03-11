@@ -1,0 +1,459 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --azul-profundo: #0a0e2e;
+    --azul-medio: #131859;
+    --azul-claro: #1e2a6e;
+    --dourado: #c9a84c;
+    --dourado-claro: #e8c97e;
+    --branco: #f5f0e8;
+    --branco-puro: #ffffff;
+    --texto-suave: rgba(245, 240, 232, 0.75);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--azul-profundo);
+    color: var(--branco);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* ===================== HERO ===================== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(10, 14, 46, 0.2) 0%,
+        rgba(10, 14, 46, 0.55) 50%,
+        rgba(10, 14, 46, 0.88) 100%
+    );
+}
+
+.hero-conteudo {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-50%);
+    text-align: right;
+    animation: fadeSlideIn 1.2s ease forwards;
+}
+
+.hero-conteudo .linha-decorativa {
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--dourado);
+    margin-left: auto;
+    margin-bottom: 16px;
+}
+
+.hero-conteudo h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(80px, 12vw, 140px);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: var(--branco-puro);
+    line-height: 1;
+    text-shadow: 0 4px 40px rgba(0,0,0,0.4);
+}
+
+.hero-conteudo .subtitulo {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--dourado-claro);
+    margin-top: 12px;
+}
+
+.hero-aluno {
+    position: absolute;
+    bottom: 36px;
+    right: 8%;
+    text-align: right;
+    animation: fadeIn 1.8s ease forwards;
+}
+
+.hero-aluno p {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--texto-suave);
+    line-height: 1.9;
+}
+
+.hero-aluno strong {
+    color: var(--dourado-claro);
+    font-weight: 500;
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: bounce 2s infinite;
+}
+
+.hero-scroll span {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+}
+
+.hero-scroll .seta {
+    width: 20px;
+    height: 20px;
+    border-right: 1px solid var(--dourado);
+    border-bottom: 1px solid var(--dourado);
+    transform: rotate(45deg);
+}
+
+/* ===================== MAIN ===================== */
+main {
+    position: relative;
+}
+
+/* ===================== LISTA DE DESTINOS ===================== */
+.destinos-section {
+    padding: 100px 6%;
+    position: relative;
+}
+
+.destinos-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 6%;
+    width: 60px;
+    height: 1px;
+    background: var(--dourado);
+}
+
+.section-label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--dourado);
+    margin-bottom: 16px;
+    display: block;
+}
+
+.section-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 300;
+    color: var(--branco);
+    margin-bottom: 60px;
+    line-height: 1.2;
+}
+
+.destinos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+}
+
+.destino-card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+}
+
+.destino-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.destino-card:hover img {
+    transform: scale(1.08);
+}
+
+.destino-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,14,46,0.9) 0%, rgba(10,14,46,0.1) 60%);
+    transition: opacity 0.4s ease;
+}
+
+.destino-card:hover .destino-card-overlay {
+    background: linear-gradient(to top, rgba(10,14,46,0.95) 0%, rgba(10,14,46,0.3) 60%);
+}
+
+.destino-card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 24px;
+}
+
+.destino-numero {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--dourado);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.destino-nome {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--branco-puro);
+    line-height: 1;
+}
+
+/* ===================== LUGAR DOS SONHOS ===================== */
+.sonhos-section {
+    padding: 120px 6%;
+    background: linear-gradient(180deg, var(--azul-profundo) 0%, var(--azul-medio) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.sonhos-section::after {
+    content: 'GRÉCIA';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20vw;
+    font-weight: 600;
+    color: rgba(255,255,255,0.02);
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.sonhos-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.sonhos-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 70px;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.sonhos-destaque {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.sonhos-foto-wrapper {
+    position: relative;
+}
+
+.sonhos-foto-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -12px -12px 12px 12px;
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    pointer-events: none;
+}
+
+.sonhos-foto-wrapper img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.sonhos-texto h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--branco);
+    margin-bottom: 12px;
+    line-height: 1.1;
+}
+
+.sonhos-texto h2 em {
+    display: block;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--dourado-claro);
+}
+
+.divisor-dourado {
+    width: 40px;
+    height: 1px;
+    background: var(--dourado);
+    margin: 24px 0;
+}
+
+.sonhos-texto p {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--texto-suave);
+    font-weight: 300;
+    max-width: 520px;
+}
+
+/* ===================== CURIOSIDADES ===================== */
+.curiosidades-section {
+    padding: 100px 6%;
+    background: var(--azul-claro);
+    position: relative;
+}
+
+.curiosidades-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--dourado), transparent);
+}
+
+.curiosidades-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 60px;
+}
+
+.curiosidade-card {
+    padding: 40px 32px;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    position: relative;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    background: rgba(255,255,255,0.02);
+}
+
+.curiosidade-card:hover {
+    border-color: var(--dourado);
+    transform: translateY(-4px);
+}
+
+.curiosidade-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--dourado);
+}
+
+.curiosidade-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: rgba(201, 168, 76, 0.15);
+    line-height: 1;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.curiosidade-card p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--texto-suave);
+    font-weight: 300;
+}
+
+.curiosidade-card p strong {
+    color: var(--dourado-claro);
+    font-weight: 500;
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+    background: var(--azul-profundo);
+    padding: 40px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 6%;
+    right: 6%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201,168,76,0.4), transparent);
+}
+
+footer p {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.35);
+}
+
+/* ===================== ANIMAÇÕES ===================== */
+@keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(calc(-50% + 30px)); }
+    to   { opacity: 1; transform: translateY(-50%); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ===================== RESPONSIVO ===================== */
+@media (max-width: 900px) {
+    .destinos-grid {
+        grid-template-columns: 1fr;
+    }
+    .destino-card {
+        aspect-ratio: 16/9;
+    }
+    .sonhos-destaque {
+        grid-template-columns: 1fr;
+    }
+    .curiosidades-grid {
+        grid-template-columns: 1fr;
+    }
+}
