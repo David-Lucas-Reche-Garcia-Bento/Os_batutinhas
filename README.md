@@ -1,28 +1,80 @@
-# Os_batutinhas
-<hr>
-Aqui encontra-se 5 paginas que contendo curiosidades, história e desejos que temos vontade de realizar, mas dessa vez o foco principal foi contar um pouco sobre alguns dos diversos motivos que nos fazem querer conhecer a cultura de outro país.
+![HTML](https://img.shields.io/badge/HTML-5-orange)
+![CSS](https://img.shields.io/badge/CSS-3-blue)
+![Status](https://img.shields.io/badge/Status-Em%20Aprendizado-yellow)
+![Especialidade](https://img.shields.io/badge/Especialidade-Frontend%20%26%20DevOps-green)
 
-Gostaríamos de salientar que o nome do nosso projeto, foi pensado para criar um momento marcante e descontraído, para termos ainda mais amor pelo que fazemos, além de representar nosso grupo pelo que ele é.. unido e cômico. 
+# 🌍 Os Batutinhas
 
-# Como acessar cada página???
-<hr>
-Dentro da pagina principal esta contido 5 cartões, que pela imagem que está contida nele já é introduzido um pouco sobre o pais ao qual temos interesse em conhecer. 
-
-Cada página é única e representa o que nós os desenvolvedores sentimos em relação a determinado local. Nenhuma das páginas contém um botão para retornar a página “Menu” por tanto é necessário voltar pelo ícone de volta padrão do navegador que vc estiver utilizando.
-
-# Time responsável pelo desenvolvimento do projeto/ nome no github:
-<hr>
-David Lucas: David-Lucas-Reche-Garcia-Bento
-
-Mariana Marrão: marianamarrao
-
-Lorenzo Lima: LorenzoOliveira-git
-
-Gustavo Kenzo: Gkso-31
-
-Vinicius Vilas Boas: Vini-Boas
-
-# Tecnologias usadas:
 <hr>
 
-Nosso grupo utilizou apaneas as linguágens de marcação html e css para a criação de nossas páginas. Porém mais do que criar uma página boa é necessário cativar seu usuário, tendo isso em vista, nós utilizamos algumas ferramentas para organização e animação, por exemplo, criamos variáveis de cor na root, e utilizamos keyframe e houver, para algumas animações.
+✨ Aqui encontra-se **5 páginas** contendo curiosidades, história e desejos que temos vontade de realizar.
+Desta vez, o foco principal foi **contar um pouco sobre alguns dos diversos motivos que nos fazem querer conhecer a cultura de outros países**.
+
+🎯 Gostaríamos de salientar que o nome do nosso projeto foi pensado para criar um **momento marcante e descontraído**, fortalecendo ainda mais o amor pelo que fazemos.
+Além disso, o nome representa nosso grupo exatamente como ele é: **unido, criativo e cômico**.
+
+---
+
+<details>
+<summary><h3>🌐 Como acessar cada página?</h3></summary>
+
+🔗 **Link do site:**
+[Os Batutinhas](https://david-lucas-reche-garcia-bento.github.io/Os_batutinhas/)
+
+📌 Dentro da **página principal**, existem **5 cartões**.
+Cada cartão possui uma imagem que já introduz um pouco sobre o **país que temos interesse em conhecer**.
+
+🌎 Cada página é **única** e representa o que nós, desenvolvedores, sentimos em relação a determinado local.
+
+⚠️ **Observação:**
+Nenhuma das páginas contém um botão para retornar ao **Menu principal**.
+Para voltar, é necessário usar o **botão de voltar do navegador**.
+
+</details>
+
+<hr>
+
+<details>
+<summary><h3>👨‍💻 Time responsável pelo desenvolvimento</h3></summary>
+
+Nosso grupo foi responsável pela criação e desenvolvimento de todo o projeto:
+
+* 👨‍💻 **David Lucas**
+  [David-Lucas-Reche-Garcia-Bento](https://github.com/David-Lucas-Reche-Garcia-Bento)
+
+* 👩‍💻 **Mariana Marrão**
+  [marianamarrao](https://github.com/marianamarrao)
+
+* 👨‍💻 **Lorenzo Lima**
+  [LorenzoOliveira-git](https://github.com/LorenzoOliveira-git)
+
+* 👨‍💻 **Gustavo Kenzo**
+  [Gkso-31](https://github.com/Gkso31)
+
+* 👨‍💻 **Vinicius Vilas Boas**
+  [Vini-Boas](https://github.com/Vini-Boas)
+
+</details>
+
+<hr>
+
+<details>
+<summary><h3>🛠️ Tecnologias utilizadas</h3></summary>
+
+Nosso grupo utilizou **apenas linguagens de marcação**, focando em estrutura e estilo:
+
+* 🧱 **HTML5** – Estrutura das páginas
+* 🎨 **CSS3** – Estilização e animações
+
+💡 Além disso, utilizamos algumas técnicas para melhorar a experiência do usuário:
+
+* 🎨 **Variáveis de cor na `:root`** para padronização do design
+* ✨ **`@keyframes`** para animações
+* 🖱️ **`hover`** para interações visuais
+* 🗂️ Organização do código para facilitar manutenção
+
+</details>
+
+<hr>
+
+⭐ **Projeto desenvolvido com dedicação e criatividade pelo grupo Os Batutinhas.**
