@@ -12,6 +12,7 @@ Cada página é única e representa o que nós os desenvolvedores sentimos em re
 
 # Time responsável pelo desenvolvimento do projeto/ nome no github:
 <hr>
+
 David Lucas: David-Lucas-Reche-Garcia-Bento
 
 Mariana Marrão: marianamarrao
